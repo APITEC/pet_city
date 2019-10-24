@@ -1,6 +1,6 @@
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
-from pets.models import PetType, Pet, FoodType, Feeding
-from pets.serializers import PetTypeSerializer, PetTypeDetailSerializer, PetSerializer, PetDetailSerializer, FoodTypeSerializer, FeedingSerializer, FeedingDetailSerializer
+from pets.models import PetType, Pet, FoodType, Feeding, Vaccine, Vaccination
+from pets.serializers import PetTypeSerializer, PetTypeDetailSerializer, PetSerializer, PetDetailSerializer, FoodTypeSerializer, FeedingSerializer, FeedingDetailSerializer, VaccineSerializer, VaccinationSerializer
 
 
 # Pet Type
@@ -75,3 +75,25 @@ class RetrieveUpdateDestroyFeeding(RetrieveUpdateDestroyAPIView):
             return FeedingDetailSerializer
         elif self.request.method == 'PATCH' or self.request.method == 'PUT':
             return FeedingSerializer
+
+
+# Vaccine
+class ListCreateVaccine(ListCreateAPIView):
+    queryset = Vaccine.objects.all()
+    serializer_class = VaccineSerializer
+
+
+class RetrieveUpdateDestroyVaccine(RetrieveUpdateDestroyAPIView):
+    queryset = Vaccine.objects.all()
+    serializer_class = VaccineSerializer
+    
+    
+# Vaccination
+class ListCreateVaccination(ListCreateAPIView):
+    queryset = Vaccination.objects.all()
+    serializer_class = VaccinationSerializer
+
+
+class RetrieveUpdateDestroyVaccination(RetrieveUpdateDestroyAPIView):
+    queryset = Vaccination.objects.all()
+    serializer_class = VaccinationSerializer

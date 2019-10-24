@@ -1,5 +1,5 @@
 from rest_framework.serializers import ModelSerializer
-from pets.models import PetType, Pet, FoodType, Feeding
+from pets.models import PetType, Pet, FoodType, Feeding, Vaccine, Vaccination
 
 
 # Pet Type
@@ -47,3 +47,17 @@ class FeedingDetailSerializer(ModelSerializer):
         model = Feeding
         fields = '__all__'
         depth = 2
+
+
+# Vaccine
+class VaccineSerializer(ModelSerializer):
+    class Meta:
+        model = Vaccine
+        fields = '__all__'
+
+
+# Vaccination
+class VaccinationSerializer(ModelSerializer):
+    class Meta:
+        model = Vaccination
+        fields = '__all__'

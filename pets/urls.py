@@ -18,4 +18,12 @@ urlpatterns = [
     # Feeding
     path('feeding/', views.ListCreateFeeding.as_view(), name='feedings'),
     path('feeding/<int:pk>/', views.RetrieveUpdateDestroyFeeding.as_view(), name='feeding'),
+
+    # Vaccine
+    path('vaccine/', views.ListCreateVaccine.as_view(), name='vaccines'),
+    path('vaccine/<int:pk>/', views.RetrieveUpdateDestroyVaccine.as_view(), name='vaccine'),
+
+    # Vaccination
+    path('vaccination/', views.ListCreateVaccination.as_view(), name='vaccinations'),
+    path('vaccination/<int:pk>/', views.RetrieveUpdateDestroyVaccination.as_view(), name='vaccination'),
 ]

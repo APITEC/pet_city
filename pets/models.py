@@ -1,5 +1,5 @@
 from django.db import models
-from users.models import User
+from users.models import User, Veterinarian
 
 
 # Create your models here.
@@ -35,3 +35,16 @@ class Feeding(models.Model):
 
     def __str__(self):
         return self.pet.name + ' - ' + self.name + ' (' + str(self.time) + ')'
+
+
+class Vaccine(models.Model):
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
+
+
+class Vaccination(models.Model):
+    pet = models.ForeignKey(Pet, on_delete=models.CASCADE)
+    vaccine = models.ForeignKey(Vaccine, on_delete=models.CASCADE)
+    veterinarian = models.ForeignKey(Veterinarian, on_delete=models.CASCADE)
